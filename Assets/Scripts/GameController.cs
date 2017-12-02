@@ -25,9 +25,6 @@ public class GameController : MonoBehaviour {
     private bool hasFailed = false;
     private bool hasSucceded = false;
 
-    private Vector3 balancePoint = Vector3.zero;
-    private Vector3 floorPoint = new Vector3(0, -2, 0);
-
     void OnEnable()
     {
         EventManager.failure += Failure;
@@ -74,8 +71,8 @@ public class GameController : MonoBehaviour {
 
     void Start()
     {
+
         EventManager.invokeSubscribersTo_UpdateTimeRemainingToUI(timeRemaining);
-        balancePoint = balancePole.transform.position;
         InvokeRepeating("ChangeRotationAmount", 1.0f, 1.0f);
         InvokeRepeating("IncreaseDifficulty", 2.0f, 2.0f);
         InvokeRepeating("DecreaseTimeRemaining", 1.0f, 1.0f);

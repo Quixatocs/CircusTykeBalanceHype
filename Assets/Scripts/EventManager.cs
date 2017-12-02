@@ -15,6 +15,12 @@ public class EventManager : MonoBehaviour {
     public delegate void UpdateTimeRemainingToUI(int time);
     public static event UpdateTimeRemainingToUI updateTimeRemainingToUI;
 
+    public delegate void StartTheBalancing();
+    public static event StartTheBalancing startTheBalancing;
+
+    public delegate void LoadTheBalanceScene();
+    public static event LoadTheBalanceScene loadTheBalanceScene;
+
     void Awake()
     {
         singleton();
@@ -43,6 +49,16 @@ public class EventManager : MonoBehaviour {
     public static void invokeSubscribersTo_UpdateTimeRemainingToUI(int time)
     {
         updateTimeRemainingToUI(time);
+    }
+
+    public static void invokeSubscribersTo_StartTheBalancing()
+    {
+        startTheBalancing();
+    }
+
+    public static void invokeSubscribersTo_LoadTheBalanceScene()
+    {
+        loadTheBalanceScene();
     }
 
 

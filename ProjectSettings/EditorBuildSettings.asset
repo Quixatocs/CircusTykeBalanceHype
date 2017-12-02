@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Hype.unity
+    guid: 75bf4ed374061d543a25e13e50e3c2fa
+  - enabled: 1
+    path: Assets/Scenes/Balance.unity
+    guid: 347ed36dbb4bd2140b6e54c294d484cb

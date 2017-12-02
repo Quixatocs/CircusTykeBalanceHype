@@ -8,7 +8,6 @@ public class DynamicAnimationSpeed : MonoBehaviour {
 
     Animator animator;
 
-    private float currentBalancePoleXPosition = 0;
 
     void Start()
     {
@@ -17,7 +16,6 @@ public class DynamicAnimationSpeed : MonoBehaviour {
 
     void Update()
     {
-        currentBalancePoleXPosition = gameController.GetCurrentBalancePoleXPosition();
         animator.speed = 0.5f + (Mathf.Abs(gameController.GetCurrentBalancePoleXPosition()) * 5);
 
     }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0d5a3eb7491f9ea48b7b840f31e186fe
-timeCreated: 1512234930
+timeCreated: 1512244153
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,9 @@ TextureImporter:
     21300024: RightMustache
     21300026: HypeSceneSpriteSheet_14
     21300028: TitleText
+    21300030: ButtonIMG
+    21300032: SpeechBubble_1
+    21300034: SpeechBubble_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -253,6 +256,48 @@ TextureImporter:
         y: 0
         width: 1215
         height: 546
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonIMG
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 689
+        width: 413
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpeechBubble_1
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 617
+        width: 561
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpeechBubble_2
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 1246
+        width: 378
+        height: 561
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

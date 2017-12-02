@@ -6,15 +6,23 @@ public class GameController : MonoBehaviour {
 
     int difficulty = 1;
 
+    private const float WANDER_AMOUNT = 0.001f; 
+
     public GameObject balancePole;
     private float currentRotation = 0;
     private float randomRotationAmount = 0;
     private float playerRotationAmount = 0f;
     private float pressureAmount = 0.1f;
     private float decayAmount = 0.01f;
+    private float currentBalancePoleXPosition = 0f;
+
+    private Vector3 balancePoint = Vector3.zero;
+    private Vector3 floorPoint = new Vector3(0, -2, 0);
 
 
     void Update () {
+
+
 
         if (Input.GetMouseButton(0))
         {
@@ -27,10 +35,12 @@ public class GameController : MonoBehaviour {
         }
 
         RotateBalancePole();
+        WanderPoleBalancePoint();
     }
 
     void Start()
     {
+        balancePoint = balancePole.transform.position;
         InvokeRepeating("ChangeRotationAmount", 1.0f, 1.0f);
     }
 
@@ -70,6 +80,13 @@ public class GameController : MonoBehaviour {
     private void ChangeRotationAmount()
     {
         randomRotationAmount = Random.Range(-0.5f, 0.5f);
+    }
+
+    private void WanderPoleBalancePoint()
+    {
+        currentBalancePoleXPosition = currentRotation / 45;
+        Vector3 newBalancePointPosition = new Vector3(currentBalancePoleXPosition, balancePole.transform.position.y, 0);
+        balancePole.transform.position = newBalancePointPosition;
     }
 
 

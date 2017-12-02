@@ -9,6 +9,10 @@ public class GameController : MonoBehaviour {
     private const float WANDER_AMOUNT = 0.001f; 
 
     public GameObject balancePole;
+    public GameObject character;
+    public GameObject balancingObstacles;
+
+
     private float currentRotation = 0;
     private float randomRotationAmount = 0;
     private float playerRotationAmount = 0f;
@@ -36,6 +40,7 @@ public class GameController : MonoBehaviour {
 
         RotateBalancePole();
         WanderPoleBalancePoint();
+        RotateObstacles();
     }
 
     void Start()
@@ -86,8 +91,26 @@ public class GameController : MonoBehaviour {
     {
         currentBalancePoleXPosition = currentRotation / 45;
         Vector3 newBalancePointPosition = new Vector3(currentBalancePoleXPosition, balancePole.transform.position.y, 0);
+        Vector3 newCharacterPosition = new Vector3(currentBalancePoleXPosition, character.transform.position.y, 0);
         balancePole.transform.position = newBalancePointPosition;
+        character.transform.position = newCharacterPosition;
     }
+
+    private void RotateObstacles()
+    {
+        balancingObstacles.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -currentRotation/2));
+        balancingObstacles.transform.localScale = new Vector3(1, 1 + ((Mathf.Abs(currentRotation) / 2)/200), 1);
+        
+        //balancingObstacles.
+    }
+
+    public float GetCurrentBalancePoleXPosition()
+    {
+        return currentBalancePoleXPosition;
+    }
+
+
+
 
 
 }

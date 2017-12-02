@@ -7,6 +7,9 @@ public class EventManager : MonoBehaviour {
     public static EventManager instance = null;
 
 
+    public delegate void Failure();
+    public static event Failure failure;
+
     void Awake()
     {
         singleton();
@@ -24,9 +27,9 @@ public class EventManager : MonoBehaviour {
 
 
 
-    public static void invokeSubscribersTo_Method()
+    public static void invokeSubscribersTo_Failure()
     {
-        //input code here
+        failure();
     }
 
 

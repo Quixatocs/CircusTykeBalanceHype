@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 598781ac67215e94ba75430f17870704
-timeCreated: 1512203540
+timeCreated: 1512207719
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: Character_Frame1
     21300004: Character_Frame2
     21300006: Chair
+    21300008: Spotlight
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -159,7 +160,21 @@ TextureImporter:
         width: 411
         height: 481
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spotlight
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 819
+        width: 1003
+        height: 502
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

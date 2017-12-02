@@ -23,10 +23,22 @@ public class GameController : MonoBehaviour {
     private Vector3 balancePoint = Vector3.zero;
     private Vector3 floorPoint = new Vector3(0, -2, 0);
 
+    void OnEnable()
+    {
+        EventManager.failure += Failure;
+    }
+
+    void OnDisable()
+    {
+        EventManager.failure -= Failure;
+    }
 
     void Update () {
 
-
+        if (currentRotation > 40f || currentRotation < -40f)
+        {
+            EventManager.invokeSubscribersTo_Failure();
+        }
 
         if (Input.GetMouseButton(0))
         {
@@ -100,14 +112,19 @@ public class GameController : MonoBehaviour {
     {
         balancingObstacles.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -currentRotation/2));
         balancingObstacles.transform.localScale = new Vector3(1, 1 + ((Mathf.Abs(currentRotation) / 2)/200), 1);
-        
-        //balancingObstacles.
     }
 
     public float GetCurrentBalancePoleXPosition()
     {
         return currentBalancePoleXPosition;
     }
+
+    private void Failure()
+    {
+
+    }
+
+
 
 
 

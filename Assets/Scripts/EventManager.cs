@@ -42,6 +42,9 @@ public class EventManager : MonoBehaviour {
     public delegate void PlayTyke();
     public static event PlayTyke playTyke;
 
+    public delegate void SkipThePreHype();
+    public static event SkipThePreHype skipThePreHype;
+
 
 
     void Awake()
@@ -120,6 +123,11 @@ public class EventManager : MonoBehaviour {
     public static void invokeSubscribersTo_PlayTyke()
     {
         playTyke();
+    }
+
+    public static void invokeSubscribersTo_SkipThePreHype()
+    {
+        skipThePreHype();
     }
 
 

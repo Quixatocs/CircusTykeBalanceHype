@@ -10,9 +10,8 @@ public class BossSpeechManager : MonoBehaviour {
     public Image speechBubbleTyke;
     public GameObject startButton;
     public GameObject hypeButton;
-    
+    public GameObject skipButton;
 
-    private bool hasSeenExplanation = false;
     private bool isBustingRhymesDuringThisTimes = true;
 
     public float midRhymeWaitTime = 3f;
@@ -33,11 +32,13 @@ public class BossSpeechManager : MonoBehaviour {
     void OnEnable()
     {
         EventManager.startTheBalancing += InitiateEndOfSpeech;
+        EventManager.skipThePreHype += SkipToHypeCouplets;
     }
 
     void OnDisable()
     {
         EventManager.startTheBalancing -= InitiateEndOfSpeech;
+        EventManager.skipThePreHype -= SkipToHypeCouplets;
     }
 
     void Start()
@@ -127,6 +128,12 @@ public class BossSpeechManager : MonoBehaviour {
         
     }
 
+    private void SkipToHypeCouplets()
+    {
+        StopAllCoroutines();
+        isBustingRhymesDuringThisTimes = false;
+        coupletGroupCount = 3;
+    }
 
     private void InitiateEndOfSpeech()
     {

@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour {
         
         if (scene.name == "Balance")
         { // Balance Scene
-
+            isSecondPlusPlaythrough = true;
         }
         if (scene.name == "Hype")
         { // Hype Scene
@@ -116,6 +116,11 @@ public class GameManager : MonoBehaviour {
     public int GetGameHypeTimeAccrued()
     {
         return gameHypeTimeAccrued;
+    }
+
+    public bool GetIsSecondPlusPlaythrough()
+    {
+        return isSecondPlusPlaythrough;
     }
 
 

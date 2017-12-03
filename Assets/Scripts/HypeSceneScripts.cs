@@ -14,5 +14,10 @@ public class HypeSceneScripts : MonoBehaviour {
         EventManager.invokeSubscribersTo_IncreaseTheHypeTime();
     }
 
+    public void SkipThePreHype()
+    {
+        EventManager.invokeSubscribersTo_SkipThePreHype();
+    }
+
 
 }

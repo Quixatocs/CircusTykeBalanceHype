@@ -93,7 +93,6 @@ public class BossSpeechManager : MonoBehaviour {
         yield return midRhymeWait;
 
         textDisplayBoss.text = couplets[RNGsus].consequence;
-
         if (couplets[RNGsus].tykeResponse.Length != 0)
         {
             yield return responseRhymeWait;
@@ -106,7 +105,15 @@ public class BossSpeechManager : MonoBehaviour {
         speechBubbleTyke.enabled = false;
         textDisplayResponse.enabled = false;
 
-        isBustingRhymesDuringThisTimes = false;
+        if (couplets == withoutFurtherAdoCouplets)
+        {
+            EventManager.invokeSubscribersTo_LoadTheBalanceScene();
+        }
+        else
+        {
+            isBustingRhymesDuringThisTimes = false;
+        }
+        
     }
 
 
@@ -114,31 +121,7 @@ public class BossSpeechManager : MonoBehaviour {
     {
         isBustingRhymesDuringThisTimes = true;
         StopAllCoroutines();
-        StartCoroutine(WithoutFurtherAdoCouplet());
-    }
-
-    private IEnumerator WithoutFurtherAdoCouplet()
-    {
-        /*
-        int RNGsus = Mathf.FloorToInt(Random.Range(0, couplets.Length));
-        textDisplayBoss.text = couplets[RNGsus].antecedent;
-        yield return midRhymeWait;
-        textDisplayBoss.text = couplets[RNGsus].consequence;
-        if (couplets[RNGsus].tykeResponse.Length != 0)
-        {
-            yield return responseRhymeWait;
-            speechBubbleTyke.enabled = true;
-            textDisplayResponse.enabled = true;
-            textDisplayResponse.text = couplets[RNGsus].tykeResponse[0];
-        }
-        yield return endRhymeWait;
-        speechBubbleTyke.enabled = false;
-        textDisplayResponse.enabled = false;
-        coupletGroupCount++;
-        isBustingRhymesDuringThisTimes = false;
-        */
-        yield return null;
-        EventManager.invokeSubscribersTo_LoadTheBalanceScene();
+        StartCoroutine(BeginCouplet(withoutFurtherAdoCouplets));
     }
 
 }

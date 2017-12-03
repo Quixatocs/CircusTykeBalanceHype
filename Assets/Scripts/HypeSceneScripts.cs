@@ -13,4 +13,6 @@ public class HypeSceneScripts : MonoBehaviour {
     {
         EventManager.invokeSubscribersTo_IncreaseTheHypeTime();
     }
+
+
 }

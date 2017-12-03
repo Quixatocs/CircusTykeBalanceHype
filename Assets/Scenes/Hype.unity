@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 36046021}
   - component: {fileID: 36046020}
   - component: {fileID: 36046023}
+  - component: {fileID: 36046024}
   m_Layer: 0
   m_Name: StartBalanceButton
   m_TagString: Untagged
@@ -200,6 +201,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 36046024}
+        m_MethodName: DisableInteractivity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &36046021
@@ -249,6 +261,18 @@ MonoBehaviour:
   rangeValues: 8
   repeatTime: 1
   damp: 0.05
+--- !u!114 &36046024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 36046018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20c75c7a17f85f4cb1370b46558a0a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hypeButton: {fileID: 746932001}
 --- !u!1 &168593939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,10 +1382,12 @@ MonoBehaviour:
     - This is my 6th go?!
   - antecedent: Forward is BALANCING TYKE,
     consequence: All to easy to under hype!
-    tykeResponse: []
+    tykeResponse:
+    - NO he's hyping me again!
   - antecedent: You face the BALANCING TYKE,
     consequence: Eredar lord of great, great hype!
-    tykeResponse: []
+    tykeResponse:
+    - Eredar what?!
   explanationCouplets:
   - antecedent: 10 seconds up on the clock,
     consequence: The hands are bare, the ticks do tock.
@@ -1373,7 +1399,8 @@ MonoBehaviour:
     - 3 CHAIRS?! I only practised with 1...
   - antecedent: 10 seconds up on the clock,
     consequence: We all pray he takes no knock.
-    tykeResponse: []
+    tykeResponse:
+    - Amen!
   hypeCouplets:
   - antecedent: Shall we raise the time some more,
     consequence: For greater risk of face meets floor?
@@ -1384,7 +1411,7 @@ MonoBehaviour:
   - antecedent: Shall we stack more seconds on,
     consequence: To birth legend, poem and song?
     tykeResponse: []
-  - antecedent: Shall we afford the chronographs,
+  - antecedent: Shall we afford the chronographs
     consequence: with yet more time and thus more laughs?
     tykeResponse: []
   - antecedent: Shall we force the tempo down,
@@ -1393,7 +1420,10 @@ MonoBehaviour:
   - antecedent: Shall we add temporal stretch,
     consequence: a prettier price these tickets will fetch?
     tykeResponse: []
-  withoutFurtherAdoCouplets: []
+  withoutFurtherAdoCouplets:
+  - antecedent: Then without further ado,
+    consequence: let's see our Tyke entertain you.
+    tykeResponse: []
 --- !u!1001 &975536387
 Prefab:
   m_ObjectHideFlags: 0
@@ -1623,7 +1653,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033264977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 387, y: 152.70001, z: 0}
+  m_LocalPosition: {x: 383.6, y: 174.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 911782659}
@@ -1631,8 +1661,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 387, y: 152.7}
-  m_SizeDelta: {x: 510.4, y: 857.6}
+  m_AnchoredPosition: {x: 383.6, y: 174.8}
+  m_SizeDelta: {x: 571.6, y: 861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033264979
 MonoBehaviour:
@@ -1689,7 +1719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1217719364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1697,7 +1727,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1217719363}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -508.39996, y: -217.2, z: 0}
+  m_LocalPosition: {x: -496.5, y: -224, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 911782659}
@@ -1705,8 +1735,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -508.4, y: -217.2}
-  m_SizeDelta: {x: 515.4, y: 492.4}
+  m_AnchoredPosition: {x: -496.5, y: -224}
+  m_SizeDelta: {x: 491.6, y: 478.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217719365
 MonoBehaviour:
@@ -2449,7 +2479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2011697653
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2457,7 +2487,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2011697652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -469.49997, y: -216.6, z: 0}
+  m_LocalPosition: {x: -466.59998, y: -226.79999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 911782659}
@@ -2465,8 +2495,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -469.5, y: -216.6}
-  m_SizeDelta: {x: 725.2, y: 705.2}
+  m_AnchoredPosition: {x: -466.6, y: -226.8}
+  m_SizeDelta: {x: 749, y: 678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011697654
 MonoBehaviour:
@@ -2474,7 +2504,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2011697652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 

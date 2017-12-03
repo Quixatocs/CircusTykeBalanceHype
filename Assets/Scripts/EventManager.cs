@@ -27,6 +27,9 @@ public class EventManager : MonoBehaviour {
     public delegate void IncreaseTheHypeTime();
     public static event IncreaseTheHypeTime increaseTheHypeTime;
 
+    public delegate void TakeSnapshot();
+    public static event TakeSnapshot takeSnapshot;
+
 
 
     void Awake()
@@ -79,6 +82,11 @@ public class EventManager : MonoBehaviour {
     public static void invokeSubscribersTo_IncreaseTheHypeTime()
     {
         increaseTheHypeTime();
+    }
+
+    public static void invokeSubscribersTo_TakeSnapshot()
+    {
+        takeSnapshot();
     }
 
 

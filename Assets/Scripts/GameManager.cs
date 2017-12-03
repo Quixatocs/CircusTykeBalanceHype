@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour {
 
@@ -73,8 +75,8 @@ public class GameManager : MonoBehaviour {
     private IEnumerator TimerForTimeScale()
     {
         yield return new WaitForSeconds(timeToWaitAfterFailure);
-        //Put Snapshot looking screenwipe in here
-        yield return new WaitForSeconds(0.1f);
+        EventManager.invokeSubscribersTo_TakeSnapshot();
+        yield return new WaitForSeconds(1f);
         StartCoroutine(LoadHypeScene());
         Time.timeScale = 0f;
         

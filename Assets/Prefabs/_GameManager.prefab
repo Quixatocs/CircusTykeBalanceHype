@@ -51,4 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e720ef1b9fc443867a91422096da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToWaitAfterFailure: 4
+  timeToWaitAfterFailure: 6

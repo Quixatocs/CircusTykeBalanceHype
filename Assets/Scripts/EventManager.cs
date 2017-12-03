@@ -86,7 +86,8 @@ public class EventManager : MonoBehaviour {
 
     public static void invokeSubscribersTo_TakeSnapshot()
     {
-        takeSnapshot();
+        if(takeSnapshot != null)
+            takeSnapshot();
     }
 
 

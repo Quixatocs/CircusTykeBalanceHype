@@ -30,6 +30,9 @@ public class EventManager : MonoBehaviour {
     public delegate void TakeSnapshot();
     public static event TakeSnapshot takeSnapshot;
 
+    public delegate void PlayGaspSound();
+    public static event PlayGaspSound playGaspSound;
+
 
 
     void Awake()
@@ -88,6 +91,11 @@ public class EventManager : MonoBehaviour {
     {
         if(takeSnapshot != null)
             takeSnapshot();
+    }
+
+    public static void invokeSubscribersTo_PlayGaspSound()
+    {
+        playGaspSound();
     }
 
 

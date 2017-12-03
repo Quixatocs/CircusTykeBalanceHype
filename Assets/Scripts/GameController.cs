@@ -24,6 +24,9 @@ public class GameController : MonoBehaviour {
     private float decayAmount = 0.01f;
     private float currentBalancePoleXPosition = 0f;
 
+    private float gaspSoundThreshold = 0.5f;
+    private float timeSinceGaspSound = 0;
+
     private bool hasFailed = false;
     private bool hasSucceded = false;
 
@@ -42,7 +45,7 @@ public class GameController : MonoBehaviour {
     void Update()
     {
 
-        if (currentRotation > 40f || currentRotation < -40f && !hasFailed && !hasSucceded)
+        if ((currentRotation > 40f || currentRotation < -40f) && !hasFailed && !hasSucceded)
         {
             EventManager.invokeSubscribersTo_Failure();
         }
@@ -63,8 +66,16 @@ public class GameController : MonoBehaviour {
             playerRotationAmount += pressureAmount;
         }
 
+        if (!hasFailed && !hasSucceded && (currentRotation > 15f || currentRotation < -15f) && Time.timeSinceLevelLoad - timeSinceGaspSound > gaspSoundThreshold)
+        {
+            timeSinceGaspSound = Time.timeSinceLevelLoad;
+            EventManager.invokeSubscribersTo_PlayGaspSound();
+        }
+
         if (!hasFailed)
-        { 
+        {
+            gaspSoundThreshold = Map(Mathf.Abs(currentBalancePoleXPosition), 0f, 1f, 0.7f, 0.1f);
+            
             RotateBalancePole();
             WanderPoleBalancePoint();
             RotateObstacles();
@@ -76,6 +87,8 @@ public class GameController : MonoBehaviour {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         timeRemaining = gameManager.GetGameHypeTimeAccrued();
         EventManager.invokeSubscribersTo_UpdateTimeRemainingToUI(timeRemaining);
+
+        timeSinceGaspSound = Time.timeSinceLevelLoad;
 
         InvokeRepeating("ChangeRotationAmount", 1.0f, 1.0f);
         InvokeRepeating("IncreaseDifficulty", 2.0f, 2.0f);
@@ -125,6 +138,8 @@ public class GameController : MonoBehaviour {
         randomRotationAmount = Random.Range(-difficultyCoefficient, difficultyCoefficient);
     }
 
+
+
     private void WanderPoleBalancePoint()
     {
         currentBalancePoleXPosition = currentRotation / 45;
@@ -163,10 +178,15 @@ public class GameController : MonoBehaviour {
         EventManager.invokeSubscribersTo_UpdateTimeRemainingToUI(timeRemaining);
     }
 
-
-
-
-
-
-
+    private float Map(float x, float in_min, float in_max, float out_min, float out_max)
+    {
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
+
+
+
+
+
+
+
+}

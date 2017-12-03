@@ -800,7 +800,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hold Left Click ->>
+  m_Text: Tap LeftClick ->>
 --- !u!222 &436238620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1409,7 +1409,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <<- Hold Right Click
+  m_Text: <<- Tap RightClick
 --- !u!222 &1393635595
 CanvasRenderer:
   m_ObjectHideFlags: 0

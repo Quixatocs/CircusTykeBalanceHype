@@ -8,7 +8,8 @@ public class BossSpeechManager : MonoBehaviour {
     public Text textDisplayBoss;
     public Text textDisplayResponse;
     public Image speechBubbleTyke;
-    public Button hypeButton;
+    public GameObject startButton;
+    public GameObject hypeButton;
     
 
     private bool hasSeenExplanation = false;
@@ -26,7 +27,18 @@ public class BossSpeechManager : MonoBehaviour {
     public Couplet[] tykeCouplets;
     public Couplet[] explanationCouplets;
     public Couplet[] hypeCouplets;
+    public Couplet[] withoutFurtherAdoCouplets;
     private int coupletGroupCount = 0;
+
+    void OnEnable()
+    {
+        EventManager.startTheBalancing += InitiateEndOfSpeech;
+    }
+
+    void OnDisable()
+    {
+        EventManager.startTheBalancing -= InitiateEndOfSpeech;
+    }
 
     void Start()
     {
@@ -34,7 +46,6 @@ public class BossSpeechManager : MonoBehaviour {
         endRhymeWait = new WaitForSeconds(endRhymeWaitTime);
         responseRhymeWait = new WaitForSeconds(responseRhymeWaitTime);
         StartCoroutine(BeginCouplet(startCouplets));
-
     }
 
     void Update()
@@ -51,7 +62,7 @@ public class BossSpeechManager : MonoBehaviour {
                     StartCoroutine(BeginCouplet(explanationCouplets));
                     break;
                 case 3:
-                    StartCoroutine(HypeCouplet());
+                    StartCoroutine(BeginCouplet(hypeCouplets));
                     break;
 
                 default:
@@ -65,9 +76,24 @@ public class BossSpeechManager : MonoBehaviour {
     private IEnumerator BeginCouplet(Couplet[] couplets)
     {
         int RNGsus = Mathf.FloorToInt(Random.Range(0, couplets.Length));
+
         textDisplayBoss.text = couplets[RNGsus].antecedent;
+        
+
+        if (couplets == hypeCouplets)
+        {
+            hypeButton.SetActive(true);
+            startButton.SetActive(true);
+        }
+        else
+        {
+            coupletGroupCount++;
+        }
+
         yield return midRhymeWait;
+
         textDisplayBoss.text = couplets[RNGsus].consequence;
+
         if (couplets[RNGsus].tykeResponse.Length != 0)
         {
             yield return responseRhymeWait;
@@ -75,14 +101,23 @@ public class BossSpeechManager : MonoBehaviour {
             textDisplayResponse.enabled = true;
             textDisplayResponse.text = couplets[RNGsus].tykeResponse[0];
         }
+
         yield return endRhymeWait;
         speechBubbleTyke.enabled = false;
         textDisplayResponse.enabled = false;
-        coupletGroupCount++;
+
         isBustingRhymesDuringThisTimes = false;
     }
 
-    private IEnumerator HypeCouplet()
+
+    private void InitiateEndOfSpeech()
+    {
+        isBustingRhymesDuringThisTimes = true;
+        StopAllCoroutines();
+        StartCoroutine(WithoutFurtherAdoCouplet());
+    }
+
+    private IEnumerator WithoutFurtherAdoCouplet()
     {
         /*
         int RNGsus = Mathf.FloorToInt(Random.Range(0, couplets.Length));
@@ -103,6 +138,7 @@ public class BossSpeechManager : MonoBehaviour {
         isBustingRhymesDuringThisTimes = false;
         */
         yield return null;
+        EventManager.invokeSubscribersTo_LoadTheBalanceScene();
     }
 
 }

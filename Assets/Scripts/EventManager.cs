@@ -21,6 +21,14 @@ public class EventManager : MonoBehaviour {
     public delegate void LoadTheBalanceScene();
     public static event LoadTheBalanceScene loadTheBalanceScene;
 
+    public delegate void UpdateBalanceSecondsSignToUI(int seconds);
+    public static event UpdateBalanceSecondsSignToUI updateBalanceSecondsSignToUI;
+
+    public delegate void IncreaseTheHypeTime();
+    public static event IncreaseTheHypeTime increaseTheHypeTime;
+
+
+
     void Awake()
     {
         singleton();
@@ -35,6 +43,8 @@ public class EventManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
     
+
+
 
     public static void invokeSubscribersTo_Failure()
     {
@@ -59,6 +69,16 @@ public class EventManager : MonoBehaviour {
     public static void invokeSubscribersTo_LoadTheBalanceScene()
     {
         loadTheBalanceScene();
+    }
+
+    public static void invokeSubscribersTo_UpdateBalanceSecondsSignToUI(int seconds)
+    {
+        updateBalanceSecondsSignToUI(seconds);
+    }
+
+    public static void invokeSubscribersTo_IncreaseTheHypeTime()
+    {
+        increaseTheHypeTime();
     }
 
 

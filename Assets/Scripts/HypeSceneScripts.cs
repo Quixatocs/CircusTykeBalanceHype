@@ -8,4 +8,9 @@ public class HypeSceneScripts : MonoBehaviour {
     {
         EventManager.invokeSubscribersTo_StartTheBalancing();
     }
+
+    public void IncreaseTheHypeTime()
+    {
+        EventManager.invokeSubscribersTo_IncreaseTheHypeTime();
+    }
 }

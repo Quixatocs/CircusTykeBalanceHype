@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
 
-    private int gameHypeTimeAccrued = 5;
+    private int gameHypeTimeAccrued = 10;
 
     public float timeToWaitAfterFailure = 6f;
 
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
         EventManager.success += Success;
         EventManager.failure += Failure;
         EventManager.loadTheBalanceScene += LoadBalanceScene;
+        EventManager.increaseTheHypeTime += IncreaseTheHypeTime;
     }
 
     void OnDisable()
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour {
         EventManager.success -= Success;
         EventManager.failure -= Failure;
         EventManager.loadTheBalanceScene -= LoadBalanceScene;
+        EventManager.increaseTheHypeTime -= IncreaseTheHypeTime;
     }
 
     void OnLoadCallback(Scene scene, LoadSceneMode sceneMode)
@@ -51,7 +53,8 @@ public class GameManager : MonoBehaviour {
         }
         if (scene.name == "Hype")
         { // Hype Scene
-            gameHypeTimeAccrued = 5;
+            gameHypeTimeAccrued = 10;
+            EventManager.invokeSubscribersTo_UpdateBalanceSecondsSignToUI(gameHypeTimeAccrued);
         }
         
 
@@ -65,25 +68,20 @@ public class GameManager : MonoBehaviour {
     private void Failure()
     {
         StartCoroutine(TimerForTimeScale());
-        //Invoke("LoadHypeScene", timeToWaitAfterFailure + 0.1f);
     }
 
     private IEnumerator TimerForTimeScale()
     {
         yield return new WaitForSeconds(timeToWaitAfterFailure);
-        Debug.Log("Wait1");
         //Put Snapshot looking screenwipe in here
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("Wait2");
         StartCoroutine(LoadHypeScene());
-        Debug.Log("AfterInvokeS");
         Time.timeScale = 0f;
         
     }
 
     private IEnumerator LoadHypeScene()
     {
-        Debug.Log("Loading");
         yield return null;
         SceneManager.LoadScene("Hype");
     }
@@ -91,6 +89,11 @@ public class GameManager : MonoBehaviour {
     public void IncreaseTheHypeTime()
     {
         gameHypeTimeAccrued += 5;
+
+        if (gameHypeTimeAccrued > 995)
+            gameHypeTimeAccrued = 999;
+
+        EventManager.invokeSubscribersTo_UpdateBalanceSecondsSignToUI(gameHypeTimeAccrued);
     }
 
     public void LoadBalanceScene()

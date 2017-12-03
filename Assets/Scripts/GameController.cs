@@ -6,7 +6,9 @@ public class GameController : MonoBehaviour {
 
     private float difficultyCoefficient = 0.2f;
 
-    private const float WANDER_AMOUNT = 0.001f; 
+    private const float WANDER_AMOUNT = 0.001f;
+
+    private GameManager gameManager;
 
     public GameObject balancePole;
     public GameObject character;
@@ -71,8 +73,10 @@ public class GameController : MonoBehaviour {
 
     void Start()
     {
-
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        timeRemaining = gameManager.GetGameHypeTimeAccrued();
         EventManager.invokeSubscribersTo_UpdateTimeRemainingToUI(timeRemaining);
+
         InvokeRepeating("ChangeRotationAmount", 1.0f, 1.0f);
         InvokeRepeating("IncreaseDifficulty", 2.0f, 2.0f);
         InvokeRepeating("DecreaseTimeRemaining", 1.0f, 1.0f);

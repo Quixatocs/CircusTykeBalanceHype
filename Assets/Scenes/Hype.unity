@@ -1436,6 +1436,7 @@ MonoBehaviour:
   speechBubbleTyke: {fileID: 2011697654}
   startButton: {fileID: 36046018}
   hypeButton: {fileID: 746931999}
+  skipButton: {fileID: 1197630684}
   midRhymeWaitTime: 3
   endRhymeWaitTime: 3
   responseRhymeWaitTime: 0.5

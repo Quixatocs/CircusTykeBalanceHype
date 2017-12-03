@@ -92,6 +92,7 @@ public class BossSpeechManager : MonoBehaviour {
 
         if (couplets == hypeCouplets)
         {
+            skipButton.SetActive(false);
             hypeButton.SetActive(true);
             startButton.SetActive(true);
         }

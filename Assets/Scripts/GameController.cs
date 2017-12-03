@@ -56,12 +56,12 @@ public class GameController : MonoBehaviour {
             EventManager.invokeSubscribersTo_Success();
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             playerRotationAmount -= pressureAmount;
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             playerRotationAmount += pressureAmount;
         }

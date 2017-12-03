@@ -757,7 +757,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 436238617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -476.60004, y: 1094.8, z: 0}
+  m_LocalPosition: {x: -476.60004, y: 972.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1556672729}
@@ -765,8 +765,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -476.6, y: 1094.8}
-  m_SizeDelta: {x: 693.1, y: 154.5}
+  m_AnchoredPosition: {x: -476.6, y: 972.8}
+  m_SizeDelta: {x: 693.1, y: 1063.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &436238619
 MonoBehaviour:
@@ -800,7 +800,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tap LeftClick ->>
+  m_Text: 'Tap LeftClick ->>
+
+    LeftArrow ->>
+
+    A ->>'
 --- !u!222 &436238620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1366,7 +1370,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1393635592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 476.1, y: 1094.6, z: 0}
+  m_LocalPosition: {x: 476.1, y: 972.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1556672729}
@@ -1374,8 +1378,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 476.1, y: 1094.6}
-  m_SizeDelta: {x: 743.2, y: 154.05}
+  m_AnchoredPosition: {x: 476.1, y: 972.8}
+  m_SizeDelta: {x: 743.2, y: 1063.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1393635594
 MonoBehaviour:
@@ -1409,7 +1413,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <<- Tap RightClick
+  m_Text: '<<- Tap RightClick
+
+    <<- RightArrow
+
+    <<- D'
 --- !u!222 &1393635595
 CanvasRenderer:
   m_ObjectHideFlags: 0

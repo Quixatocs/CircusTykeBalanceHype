@@ -711,6 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a9e2c63810f588498ac813bed6984d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVolume: 0.2
   gameMusicSource: {fileID: 82698741308773548}
   gameSFXSource1: {fileID: 82677809101585122}
   gameSFXSource2: {fileID: 82505399605210080}
@@ -719,10 +720,28 @@ MonoBehaviour:
   gameSFXSource5: {fileID: 82525242803139028}
   music_HypeMusic: {fileID: 8300000, guid: 39513a460cee3e140bec6ca6e21e9e09, type: 3}
   music_DrumOneHit: {fileID: 8300000, guid: 9903a648b599c6841a984c62bc108fd5, type: 3}
-  sfx_Voices:
+  sfx_GameVoices:
   - {fileID: 8300000, guid: c6c24a8a27096bd4c99887ad14fdb320, type: 3}
   - {fileID: 8300000, guid: 1c5e795054c5a434fb73bdb4f1ea2735, type: 3}
   - {fileID: 8300000, guid: 395bf2cbc7a0f684d9da663d5b8956aa, type: 3}
   - {fileID: 8300000, guid: 25a689b0bb722ba41a1e4cfec539e320, type: 3}
   - {fileID: 8300000, guid: 597f9c604bb5dca4d9197d090ed32f34, type: 3}
   - {fileID: 8300000, guid: 1600b4efb9ba4cd489f5b733de0c7ea7, type: 3}
+  cheer: {fileID: 8300000, guid: 5d493846a8766e44c827b000fc480d6c, type: 3}
+  boo: {fileID: 8300000, guid: d9c0c0c6496fc5248b22f1ae685b41f6, type: 3}
+  cameraShutter: {fileID: 8300000, guid: 96974fc3910cc6040942d8a520a4d22e, type: 3}
+  bossBalanceTykePhrase: {fileID: 8300000, guid: 61aaf42ac962fe04d8ba973e7cdf1a9c,
+    type: 3}
+  bossAntecedantPhrases:
+  - {fileID: 8300000, guid: 51b0b0170ce2a1e449d8bb07d2b8667e, type: 3}
+  - {fileID: 8300000, guid: 5cfb5453b657ecf4aa352ed200068b1d, type: 3}
+  - {fileID: 8300000, guid: c9d754c6751bd4d40828b7832f0e0d54, type: 3}
+  - {fileID: 8300000, guid: af366a873027e3742b950ba7966b3fd9, type: 3}
+  - {fileID: 8300000, guid: f3c25d376f8d8924caaf9f68f2adf294, type: 3}
+  bossConsequentPhrases:
+  - {fileID: 8300000, guid: e961f3431b8f88b4fb9285fa65278e59, type: 3}
+  - {fileID: 8300000, guid: d365176fbca02b84f9759d0572e136c8, type: 3}
+  - {fileID: 8300000, guid: 76016b6e072ff8547aec47e152906d20, type: 3}
+  - {fileID: 8300000, guid: 9d33e18e2f2d5864e87aa29b0da5665a, type: 3}
+  - {fileID: 8300000, guid: 25f13f24a06ab704a95a78bca34de2bc, type: 3}
+  - {fileID: 8300000, guid: ade480205f2703a48ba195a5f7047fda, type: 3}

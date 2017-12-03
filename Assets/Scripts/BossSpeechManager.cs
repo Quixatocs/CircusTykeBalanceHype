@@ -78,6 +78,15 @@ public class BossSpeechManager : MonoBehaviour {
         int RNGsus = Mathf.FloorToInt(Random.Range(0, couplets.Length));
 
         textDisplayBoss.text = couplets[RNGsus].antecedent;
+
+        if (couplets == tykeCouplets)
+        {
+            EventManager.invokeSubscribersTo_PlayTyke();
+        }
+        else
+        {
+            EventManager.invokeSubscribersTo_PlayAntecedent();
+        }
         
 
         if (couplets == hypeCouplets)
@@ -93,6 +102,8 @@ public class BossSpeechManager : MonoBehaviour {
         yield return midRhymeWait;
 
         textDisplayBoss.text = couplets[RNGsus].consequence;
+        EventManager.invokeSubscribersTo_PlayConsequent();
+
         if (couplets[RNGsus].tykeResponse.Length != 0)
         {
             yield return responseRhymeWait;

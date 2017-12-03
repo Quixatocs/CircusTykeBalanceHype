@@ -33,6 +33,15 @@ public class EventManager : MonoBehaviour {
     public delegate void PlayGaspSound();
     public static event PlayGaspSound playGaspSound;
 
+    public delegate void PlayAntecedent();
+    public static event PlayAntecedent playAntecedent;
+
+    public delegate void PlayConsequent();
+    public static event PlayConsequent playConsequent;
+
+    public delegate void PlayTyke();
+    public static event PlayTyke playTyke;
+
 
 
     void Awake()
@@ -96,6 +105,21 @@ public class EventManager : MonoBehaviour {
     public static void invokeSubscribersTo_PlayGaspSound()
     {
         playGaspSound();
+    }
+
+    public static void invokeSubscribersTo_PlayAntecedent()
+    {
+        playAntecedent();
+    }
+
+    public static void invokeSubscribersTo_PlayConsequent()
+    {
+        playConsequent();
+    }
+
+    public static void invokeSubscribersTo_PlayTyke()
+    {
+        playTyke();
     }
 
 

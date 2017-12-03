@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 
     public float timeToWaitAfterFailure = 6f;
 
+    private bool isSecondPlusPlaythrough = false;
+
     void Awake()
     {
         singleton();
@@ -76,7 +78,8 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(timeToWaitAfterFailure);
         EventManager.invokeSubscribersTo_TakeSnapshot();
-        yield return new WaitForSeconds(1f);
+        float fadetime = GetComponent<Fading>().beginFade(1);
+        yield return new WaitForSeconds(fadetime);
         StartCoroutine(LoadHypeScene());
         Time.timeScale = 0f;
         
@@ -100,6 +103,13 @@ public class GameManager : MonoBehaviour {
 
     public void LoadBalanceScene()
     {
+        StartCoroutine(LoadBalanceSceneAfterFade());
+    }
+
+    public IEnumerator LoadBalanceSceneAfterFade()
+    {
+        float fadetime = GetComponent<Fading>().beginFade(1);
+        yield return new WaitForSeconds(fadetime);
         SceneManager.LoadScene("Balance");
     }
 

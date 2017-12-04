@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
 
-    private int gameHypeTimeAccrued = 10;
+    private int gameHypeTimeAccrued = 30;
 
     public float timeToWaitAfterFailure = 6f;
 
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour {
         }
         if (scene.name == "Hype")
         { // Hype Scene
-            gameHypeTimeAccrued = 10;
+            gameHypeTimeAccrued = 30;
             EventManager.invokeSubscribersTo_UpdateBalanceSecondsSignToUI(gameHypeTimeAccrued);
         }
         

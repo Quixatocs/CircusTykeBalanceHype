@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour {
         timeSinceGaspSound = Time.timeSinceLevelLoad;
 
         InvokeRepeating("ChangeRotationAmount", 1.0f, 1.0f);
-        InvokeRepeating("IncreaseDifficulty", 2.0f, 2.0f);
+        InvokeRepeating("IncreaseDifficulty", 1.0f, 1.0f);
         InvokeRepeating("DecreaseTimeRemaining", 1.0f, 1.0f);
     }
 
@@ -130,7 +130,7 @@ public class GameController : MonoBehaviour {
 
     private void IncreaseDifficulty()
     {
-        difficultyCoefficient += 0.01f;
+        difficultyCoefficient += 0.02f;
     }
 
     private void ChangeRotationAmount()
